@@ -1,0 +1,8 @@
+<div class="popup modal{{ task.id }}">
+	<div class="popcard">
+		<h2>Confirmer-vous la suppression de la tâche?</h2>
+		<p>"{{ task.title }}"</p>
+		<button type="button" class="cancel_delete btn btn-danger">annuler</button>
+		<a class="confirm_delete btn btn-secondary" href="{{ path('delete-task', {id:task.id}) }}">Oui Supprimer</a>
+	</div>
+</div>

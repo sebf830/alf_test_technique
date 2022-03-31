@@ -1,0 +1,28 @@
+{% extends 'layout/base.html.twig' %}
+
+{% block title %}Log in!
+{% endblock %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-md-4 mt-5">
+			<form method="post" class="shadow bg-dark mt-5 mx-auto" id="login_form">
+				{% if error %}
+					<div class="text-danger text-center">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+				{% endif %}
+
+				<h1 class="h5 mb-3 font-weight-normal text-light p-2 text-center">Veuillez vous connecter</h1>
+				<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="" autocomplete="email" placeholder="Entrer un email" required>
+				<label for="inputEmail" class="label py-2">Email</label>
+				<input type="password" name="password" id="inputPassword" class="" autocomplete="current-password" placeholder="Entrer le mot de passe" required>
+				<label for="inputPassword" class="label py-2">Password</label>
+
+				<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+				<button class="btn btn-lg btn-secondary py-1" id="submitLogin" type="submit">
+					<small>Sign in</small>
+				</button>
+			</form>
+		</div>
+	</div>
+{% endblock %}
